@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  ng-app:
+    container_name: student-manager-container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '4200:4200'
