@@ -4,10 +4,35 @@ services:
   ng-app:
     container_name: student-manager-container
     build:
-      context: .
+      context: ./Client
       dockerfile: Dockerfile
     volumes:
       - '.:/usr/src/app'
       - '/usr/src/app/node_modules'
     ports:
       - '4200:4200'
+    networks: 
+      - frontend
+      - backend
+
+  ng-app:
+    container_name: student-manager-container
+    build:
+      context: ./Client
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '4200:4200'
+    networks: 
+      - frontend
+      - backend
+
+networks:
+  frontend:
+    # Use a custom driver
+    driver: custom-driver-1
+  backend:
+    # Use a custom driver which takes special options
+    driver: custom-driver-2
