@@ -2,12 +2,30 @@ version: '3.5'
 
 services:
   ng-app:
-    container_name: student-manager-container
+    container_name: student-manager-app
     build:
-      context: .
+      context: ./Client
       dockerfile: Dockerfile
     volumes:
       - '.:/usr/src/app'
       - '/usr/src/app/node_modules'
     ports:
       - '4200:4200'
+    networks: 
+      - frontend
+
+  api:
+    container_name: student-manager-api
+    build:
+      context: ./Server
+      dockerfile: Dockerfile
+
+    ports:
+      - '3000:3000'
+    networks: 
+      - frontend
+      - backend
+
+networks:
+  frontend:
+  backend:

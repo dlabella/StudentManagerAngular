@@ -4,6 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {StudentTemplateDataComponent } from './student-template-data/student-template-data.component';
 import { FormsModule } from '@angular/forms';
+import { HobbyService } from './services/hobby.service';
+import { StudentService } from './services/student.service';
+import { SexoService } from './services/sexo.service';
+import { PoblacionService } from './services/poblacion.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,10 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [HobbyService,
+              StudentService,
+              SexoService,
+              PoblacionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
