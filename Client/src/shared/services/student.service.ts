@@ -17,11 +17,11 @@ export class StudentService extends ServiceBase {
   }
 
   public GetStudents(): Observable<Student[]> {
-    return this.apiGetCall('students');
+    return this.apiGetCall('student');
   }
 
   public  GetStudent(id: string): Observable<Student> {
-    return this.apiGetCall('students/' + id);
+    return this.apiGetCall('student/' + id);
   }
 
   public  SaveStudent(newStudent: Student): void {
