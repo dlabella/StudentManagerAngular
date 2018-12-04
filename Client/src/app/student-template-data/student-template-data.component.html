@@ -1,33 +1,36 @@
-<div class="form-horizontal">
-  <h2 class="aligncenter">Student Details (Template)</h2><br />
-  <div class="row">
-    <form #student="ngForm" (ngSubmit)="onSubmit()">
-      <div class="col-xs-12 col-sm-2 col-md-2">
-          <span>First Name</span>
+<section class="container">
+    <form #studentForm="ngForm">
+      <div class="form-group">
+          <label for="nombre">First Name</label>    
+          <input type="text" class="form-control" id="nombre" placeholder="Enter First Name" [(ngModel)]="student.nombre" name="nombre"/>
       </div>
-      <div class="col-xs-12 col-sm-4 col-md-4">
-          <input type="text" id="txtFName" placeholder="Enter First Name" [(ngModel)]="student.nombre" required/>
+      <div class="form-group">
+            <label for="abellidos">Last Name</label>   
+            <input type="text" class="form-control" id="apellidos" placeholder="Enter Last Name" [(ngModel)]="student.apellidos" name="apellidos"/>
       </div>
-      <div class="col-xs-12 col-sm-2 col-md-2">
-            <input type="text" id="txtLName" placeholder="Enter Last Name" [(ngModel)]="student.apellidos" required/>
+      <div class="form-group">
+             <label for="dni">Dni</label>
+            <input type="text" id="dni" class="form-control" placeholder="Enter Dni" [(ngModel)]="student.dni" name="dni" required/>
       </div>
-      <div class="col-xs-12 col-sm-2 col-md-2">
-            <input type="text" id="txtDni" placeholder="Enter Dni" [(ngModel)]="student.dni" required/>
+      <div class="form-group">
+       <label for="poblacion">Población</label>
+            <select  id="poblacion" [(ngModel)]="student.poblacion"  class="form-control" name="poblacion">
+                  <option>Barcelona</option>
+                  <option>Castelldefels</option>
+            </select>
       </div>
-      <div class="col-xs-12 col-sm-2 col-md-2">
-            <input type="select" id="selectPoblacion" [(ngModel)]="student.poblacion" required/>
+      <fieldset class="form-group">
+            <legend>Sexo</legend>
+      <div class="form-check">
+            <label class="form-check-label">
+                  <input type="radio" class="form-control" id="optionHombre" value="Hombre" [(ngModel)]="student.sexo" name="sexo" /> Hombre 
+            </label>
+            <label class="form-check-label">
+                  <input type="radio" class="form-control" id="optionMujer" value="Mujer" [(ngModel)]="student.sexo" name="sexo" /> Mujer
+            </label>
       </div>
-      <div class="col-xs-12 col-sm-2 col-md-2">
-        <span>Foreach checkbox Hobbies</span> <!-- checkbox -->
-      </div>
-      <div class="col-xs-12 col-sm-2 col-md-2">
-            <input type="checkbox" id="chkSexMale" [(ngModel)]="student.sexo"/>
-            <input type="checkbox" id="chkSexFemale" [(ngModel)]="student.sexo"/>
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4">
-          <input type="button" id="btnSubmit" value="Submit" class="btn btn-primary" [disabled]="!enabled" 
+      </fieldset>
+          <input type="button" class="btn btn-primary"  
                   (click)="onSubmit()"/>
-      </div>
-        </form>
-  </div>
-</div>
+</form>
+</section>
