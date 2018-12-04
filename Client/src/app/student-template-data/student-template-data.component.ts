@@ -1,5 +1,7 @@
+
 import { Student } from './../../shared/models/student';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { StudentService } from 'src/shared/services/student.service';
 @Component({
   selector: 'app-student-template-data',
   templateUrl: './student-template-data.component.html',
@@ -7,12 +9,23 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class StudentTemplateDataComponent {
 
-  student: Student = new Student('', 'Pepe', 'Sanchez', '', '', [], '');
+  student: Student;
   @Input() enabled = true;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onFormSubmit: EventEmitter<any> = new EventEmitter<any>();
-  constructor() {
+
+  studentService: StudentService;
+
+  constructor(studentService: StudentService ) {
+      this.studentService = studentService;
   }
+
+  private onInit() {
+    this.studentService.GetStudents().subscribe( students => {
+        this.student = students[0];
+    });
+  }
+
   private onSubmit(): void {
       if (typeof (this.student) === 'undefined') {
           alert('Form not Filled Up Properly');
