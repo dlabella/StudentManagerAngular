@@ -7,19 +7,19 @@ services:
       context: ./Client
       dockerfile: Dockerfile
     volumes:
-      - '.:/usr/src/app'
+      - './Client:/usr/src/app'
       - '/usr/src/app/node_modules'
     ports:
       - '4200:4200'
     networks: 
       - frontend
-
+    links:
+      - api
   api:
     container_name: student-manager-api
     build:
       context: ./Server
       dockerfile: Dockerfile
-
     ports:
       - '3000:3000'
     networks: 
