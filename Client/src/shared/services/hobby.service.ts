@@ -9,13 +9,8 @@ export class HobbyService {
   public  GetHobbies(): Array<Hobby> {
     const hobbies = new Array<Hobby>();
 
-    const dotnet = new Hobby();
-    dotnet.id = '.net';
-    dotnet.name = '.NET Programing';
-
-    const visualStudio = new Hobby();
-    visualStudio.id = 'vs';
-    visualStudio.name = 'Visual Studio';
+    const dotnet = new Hobby('.net', '.NET Programing');
+    const visualStudio = new Hobby('vs', 'Visual Studio');
 
     hobbies.push(dotnet);
     hobbies.push(visualStudio);

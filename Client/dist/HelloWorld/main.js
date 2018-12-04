@@ -229,7 +229,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var StudentTemplateDataComponent = /** @class */ (function () {
     function StudentTemplateDataComponent() {
-        this.student = new _shared_models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]();
+        this.student = new _shared_models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]('', '', '', '', '', [], '');
         this.enabled = true;
         // tslint:disable-next-line:no-output-on-prefix
         this.onFormSubmit = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -244,7 +244,7 @@ var StudentTemplateDataComponent = /** @class */ (function () {
         }
     };
     StudentTemplateDataComponent.prototype.onClear = function () {
-        this.student = new _shared_models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]();
+        this.student = new _shared_models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]('', '', '', '', '', [], '');
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -335,7 +335,9 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hobby", function() { return Hobby; });
 var Hobby = /** @class */ (function () {
-    function Hobby() {
+    function Hobby(id, name) {
+        this.id = id;
+        this.name = name;
     }
     return Hobby;
 }());
@@ -355,7 +357,9 @@ var Hobby = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Poblacion", function() { return Poblacion; });
 var Poblacion = /** @class */ (function () {
-    function Poblacion() {
+    function Poblacion(id, name) {
+        this.id = id;
+        this.name = name;
     }
     return Poblacion;
 }());
@@ -375,7 +379,9 @@ var Poblacion = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sexo", function() { return Sexo; });
 var Sexo = /** @class */ (function () {
-    function Sexo() {
+    function Sexo(id, name) {
+        this.id = id;
+        this.name = name;
     }
     return Sexo;
 }());
@@ -395,7 +401,14 @@ var Sexo = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Student", function() { return Student; });
 var Student = /** @class */ (function () {
-    function Student() {
+    function Student(id, nombre, apellidos, dni, poblacion, hobbies, sexo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.poblacion = poblacion;
+        this.hobbies = hobbies;
+        this.sexo = sexo;
     }
     return Student;
 }());
@@ -429,12 +442,8 @@ var HobbyService = /** @class */ (function () {
     }
     HobbyService.prototype.GetHobbies = function () {
         var hobbies = new Array();
-        var dotnet = new _models_hobby__WEBPACK_IMPORTED_MODULE_0__["Hobby"]();
-        dotnet.id = '.net';
-        dotnet.name = '.NET Programing';
-        var visualStudio = new _models_hobby__WEBPACK_IMPORTED_MODULE_0__["Hobby"]();
-        visualStudio.id = 'vs';
-        visualStudio.name = 'Visual Studio';
+        var dotnet = new _models_hobby__WEBPACK_IMPORTED_MODULE_0__["Hobby"]('.net', '.NET Programing');
+        var visualStudio = new _models_hobby__WEBPACK_IMPORTED_MODULE_0__["Hobby"]('vs', 'Visual Studio');
         hobbies.push(dotnet);
         hobbies.push(visualStudio);
         return hobbies;
@@ -476,12 +485,8 @@ var PoblacionService = /** @class */ (function () {
     }
     PoblacionService.prototype.GetPoblaciones = function () {
         var poblaciones = new Array();
-        var barcelona = new _models_poblacion__WEBPACK_IMPORTED_MODULE_0__["Poblacion"]();
-        barcelona.id = 'BCN';
-        barcelona.name = 'Barcelona';
-        var madrid = new _models_poblacion__WEBPACK_IMPORTED_MODULE_0__["Poblacion"]();
-        madrid.id = 'MAD';
-        madrid.name = 'Madrid';
+        var barcelona = new _models_poblacion__WEBPACK_IMPORTED_MODULE_0__["Poblacion"]('BCN', 'Barcelona');
+        var madrid = new _models_poblacion__WEBPACK_IMPORTED_MODULE_0__["Poblacion"]('MAD', 'Madrid');
         poblaciones.push(barcelona);
         poblaciones.push(madrid);
         return poblaciones;
@@ -523,15 +528,9 @@ var SexoService = /** @class */ (function () {
     }
     SexoService.prototype.GetSexo = function () {
         var sexos = new Array();
-        var hombre = new _models_sexo__WEBPACK_IMPORTED_MODULE_0__["Sexo"]();
-        hombre.id = 'H';
-        hombre.name = 'Hombre';
-        var mujer = new _models_sexo__WEBPACK_IMPORTED_MODULE_0__["Sexo"]();
-        mujer.id = 'M';
-        mujer.name = 'Mujer';
-        var nobinario = new _models_sexo__WEBPACK_IMPORTED_MODULE_0__["Sexo"]();
-        nobinario.id = '?';
-        nobinario.name = 'No Binario';
+        var hombre = new _models_sexo__WEBPACK_IMPORTED_MODULE_0__["Sexo"]('H', 'Hombre');
+        var mujer = new _models_sexo__WEBPACK_IMPORTED_MODULE_0__["Sexo"]('M', 'Mujer');
+        var nobinario = new _models_sexo__WEBPACK_IMPORTED_MODULE_0__["Sexo"]('?', 'No Binario');
         sexos.push(hombre);
         sexos.push(mujer);
         sexos.push(nobinario);
@@ -574,12 +573,8 @@ var StudentService = /** @class */ (function () {
     }
     StudentService.prototype.GetStudents = function () {
         var students = new Array();
-        var s1 = new _models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]();
-        s1.nombre = 'Test 1';
-        s1.apellidos = 'Apellidos 1';
-        var s2 = new _models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]();
-        s2.nombre = 'Test 2';
-        s2.apellidos = 'Apellidos 2';
+        var s1 = new _models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]('Test 1', 'Apellidos 1', '', '', '', [], '');
+        var s2 = new _models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]('Test 2', 'Apellidos 2', '', '', '', [], '');
         students.push(s1);
         students.push(s2);
         return students;

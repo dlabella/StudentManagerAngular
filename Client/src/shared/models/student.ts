@@ -1,9 +1,27 @@
 export class Student {
-    public id: string;
-    public nombre: string;
-    public apellidos: string;
-    public dni: string;
-    public poblacion: string;
-    public hobbies: Array<string>;
-    public sexo: string;
+    id: string;
+    nombre: string;
+    apellidos: string;
+    dni: string;
+    poblacion: string;
+    hobbies: Array<string>;
+    sexo: string;
+
+    constructor (
+        id: string,
+        nombre: string,
+        apellidos: string,
+        dni: string,
+        poblacion: string,
+        hobbies: Array<string>,
+        sexo: string
+    ) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.poblacion = poblacion;
+        this.hobbies = hobbies;
+        this.sexo = sexo;
+    }
 }
