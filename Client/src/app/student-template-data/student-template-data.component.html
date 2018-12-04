@@ -1,33 +1,33 @@
 <div class="form-horizontal">
   <h2 class="aligncenter">Student Details (Template)</h2><br />
   <div class="row">
+    <form #student="ngForm" (ngSubmit)="onSubmit()">
       <div class="col-xs-12 col-sm-2 col-md-2">
           <span>First Name</span>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4">
-          <input type="text" id="txtFName" placeholder="Enter First Name" #firstName/>
+          <input type="text" id="txtFName" placeholder="Enter First Name" [(ngModel)]="student.nombre" required/>
       </div>
       <div class="col-xs-12 col-sm-2 col-md-2">
-          <span>Last Name</span>
+            <input type="text" id="txtLName" placeholder="Enter Last Name" [(ngModel)]="student.apellidos" required/>
       </div>
       <div class="col-xs-12 col-sm-2 col-md-2">
-        <span>Dni</span>
+            <input type="text" id="txtDni" placeholder="Enter Dni" [(ngModel)]="student.dni" required/>
       </div>
       <div class="col-xs-12 col-sm-2 col-md-2">
-        <span>Poblacion</span> <!-- desplegable -->
+            <input type="select" id="selectPoblacion" [(ngModel)]="student.poblacion" required/>
       </div>
       <div class="col-xs-12 col-sm-2 col-md-2">
-        <span>Hobbies</span> <!-- checkbox -->
+        <span>Foreach checkbox Hobbies</span> <!-- checkbox -->
       </div>
       <div class="col-xs-12 col-sm-2 col-md-2">
-        <span>Sexo</span> <!-- checkbox -->
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4">
-          <input type="text" id="txtLName" placeholder="Enter Second Name" #lastName/>
+            <input type="checkbox" id="chkSexMale" [(ngModel)]="student.sexo"/>
+            <input type="checkbox" id="chkSexFemale" [(ngModel)]="student.sexo"/>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4">
           <input type="button" id="btnSubmit" value="Submit" class="btn btn-primary" [disabled]="!enabled" 
-                  (click)="onSubmit(firstName.value,lastName.value,email.value)"/>
+                  (click)="onSubmit()"/>
       </div>
+        </form>
   </div>
 </div>
