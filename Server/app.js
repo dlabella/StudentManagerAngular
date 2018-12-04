@@ -5,6 +5,7 @@ const app = new express();
 const bodyParser = require('body-parser');
  
 app.use(bodyParser.json());
+require('./routes/hobbyRoutes')(app);
 require('./routes/studentRoutes')(app);
  
 app.listen(3000, () => {
