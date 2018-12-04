@@ -78,7 +78,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-student-template-data></app-student-template-data>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<app-student-template-data></app-student-template-data>\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -134,12 +134,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _student_template_data_student_template_data_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./student-template-data/student-template-data.component */ "./src/app/student-template-data/student-template-data.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _shared_services_hobby_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../shared/services/hobby.service */ "./src/shared/services/hobby.service.ts");
+/* harmony import */ var _shared_services_student_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../shared/services/student.service */ "./src/shared/services/student.service.ts");
+/* harmony import */ var _shared_services_sexo_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../shared/services/sexo.service */ "./src/shared/services/sexo.service.ts");
+/* harmony import */ var _shared_services_poblacion_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../shared/services/poblacion.service */ "./src/shared/services/poblacion.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -160,31 +168,14 @@ var AppModule = /** @class */ (function () {
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"]
             ],
-            providers: [],
+            providers: [_shared_services_hobby_service__WEBPACK_IMPORTED_MODULE_6__["HobbyService"],
+                _shared_services_student_service__WEBPACK_IMPORTED_MODULE_7__["StudentService"],
+                _shared_services_sexo_service__WEBPACK_IMPORTED_MODULE_8__["SexoService"],
+                _shared_services_poblacion_service__WEBPACK_IMPORTED_MODULE_9__["PoblacionService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/models/student.ts":
-/*!***********************************!*\
-  !*** ./src/app/models/student.ts ***!
-  \***********************************/
-/*! exports provided: Student */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Student", function() { return Student; });
-var Student = /** @class */ (function () {
-    function Student() {
-    }
-    return Student;
 }());
 
 
@@ -223,7 +214,7 @@ module.exports = "<div class=\"form-horizontal\">\r\n  <h2 class=\"aligncenter\"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StudentTemplateDataComponent", function() { return StudentTemplateDataComponent; });
-/* harmony import */ var _models_student__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../models/student */ "./src/app/models/student.ts");
+/* harmony import */ var _shared_models_student__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../shared/models/student */ "./src/shared/models/student.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -238,7 +229,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var StudentTemplateDataComponent = /** @class */ (function () {
     function StudentTemplateDataComponent() {
-        this.student = new _models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]();
+        this.student = new _shared_models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]();
         this.enabled = true;
         // tslint:disable-next-line:no-output-on-prefix
         this.onFormSubmit = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -253,7 +244,7 @@ var StudentTemplateDataComponent = /** @class */ (function () {
         }
     };
     StudentTemplateDataComponent.prototype.onClear = function () {
-        this.student = new _models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]();
+        this.student = new _shared_models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -292,7 +283,8 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 var environment = {
-    production: false
+    production: false,
+    apiUrl: 'localhost:3000'
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -332,6 +324,311 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 
 /***/ }),
 
+/***/ "./src/shared/models/hobby.ts":
+/*!************************************!*\
+  !*** ./src/shared/models/hobby.ts ***!
+  \************************************/
+/*! exports provided: Hobby */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hobby", function() { return Hobby; });
+var Hobby = /** @class */ (function () {
+    function Hobby() {
+    }
+    return Hobby;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/shared/models/poblacion.ts":
+/*!****************************************!*\
+  !*** ./src/shared/models/poblacion.ts ***!
+  \****************************************/
+/*! exports provided: Poblacion */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Poblacion", function() { return Poblacion; });
+var Poblacion = /** @class */ (function () {
+    function Poblacion() {
+    }
+    return Poblacion;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/shared/models/sexo.ts":
+/*!***********************************!*\
+  !*** ./src/shared/models/sexo.ts ***!
+  \***********************************/
+/*! exports provided: Sexo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sexo", function() { return Sexo; });
+var Sexo = /** @class */ (function () {
+    function Sexo() {
+    }
+    return Sexo;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/shared/models/student.ts":
+/*!**************************************!*\
+  !*** ./src/shared/models/student.ts ***!
+  \**************************************/
+/*! exports provided: Student */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Student", function() { return Student; });
+var Student = /** @class */ (function () {
+    function Student() {
+    }
+    return Student;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/shared/services/hobby.service.ts":
+/*!**********************************************!*\
+  !*** ./src/shared/services/hobby.service.ts ***!
+  \**********************************************/
+/*! exports provided: HobbyService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HobbyService", function() { return HobbyService; });
+/* harmony import */ var _models_hobby__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/hobby */ "./src/shared/models/hobby.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var HobbyService = /** @class */ (function () {
+    function HobbyService() {
+    }
+    HobbyService.prototype.GetHobbies = function () {
+        var hobbies = new Array();
+        var dotnet = new _models_hobby__WEBPACK_IMPORTED_MODULE_0__["Hobby"]();
+        dotnet.id = '.net';
+        dotnet.name = '.NET Programing';
+        var visualStudio = new _models_hobby__WEBPACK_IMPORTED_MODULE_0__["Hobby"]();
+        visualStudio.id = 'vs';
+        visualStudio.name = 'Visual Studio';
+        hobbies.push(dotnet);
+        hobbies.push(visualStudio);
+        return hobbies;
+    };
+    HobbyService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        })
+    ], HobbyService);
+    return HobbyService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/shared/services/poblacion.service.ts":
+/*!**************************************************!*\
+  !*** ./src/shared/services/poblacion.service.ts ***!
+  \**************************************************/
+/*! exports provided: PoblacionService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoblacionService", function() { return PoblacionService; });
+/* harmony import */ var _models_poblacion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/poblacion */ "./src/shared/models/poblacion.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var PoblacionService = /** @class */ (function () {
+    function PoblacionService() {
+    }
+    PoblacionService.prototype.GetPoblaciones = function () {
+        var poblaciones = new Array();
+        var barcelona = new _models_poblacion__WEBPACK_IMPORTED_MODULE_0__["Poblacion"]();
+        barcelona.id = 'BCN';
+        barcelona.name = 'Barcelona';
+        var madrid = new _models_poblacion__WEBPACK_IMPORTED_MODULE_0__["Poblacion"]();
+        madrid.id = 'MAD';
+        madrid.name = 'Madrid';
+        poblaciones.push(barcelona);
+        poblaciones.push(madrid);
+        return poblaciones;
+    };
+    PoblacionService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        })
+    ], PoblacionService);
+    return PoblacionService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/shared/services/sexo.service.ts":
+/*!*********************************************!*\
+  !*** ./src/shared/services/sexo.service.ts ***!
+  \*********************************************/
+/*! exports provided: SexoService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SexoService", function() { return SexoService; });
+/* harmony import */ var _models_sexo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/sexo */ "./src/shared/models/sexo.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var SexoService = /** @class */ (function () {
+    function SexoService() {
+    }
+    SexoService.prototype.GetSexo = function () {
+        var sexos = new Array();
+        var hombre = new _models_sexo__WEBPACK_IMPORTED_MODULE_0__["Sexo"]();
+        hombre.id = 'H';
+        hombre.name = 'Hombre';
+        var mujer = new _models_sexo__WEBPACK_IMPORTED_MODULE_0__["Sexo"]();
+        mujer.id = 'M';
+        mujer.name = 'Mujer';
+        var nobinario = new _models_sexo__WEBPACK_IMPORTED_MODULE_0__["Sexo"]();
+        nobinario.id = '?';
+        nobinario.name = 'No Binario';
+        sexos.push(hombre);
+        sexos.push(mujer);
+        sexos.push(nobinario);
+        return sexos;
+    };
+    SexoService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        })
+    ], SexoService);
+    return SexoService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/shared/services/student.service.ts":
+/*!************************************************!*\
+  !*** ./src/shared/services/student.service.ts ***!
+  \************************************************/
+/*! exports provided: StudentService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StudentService", function() { return StudentService; });
+/* harmony import */ var _models_student__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/student */ "./src/shared/models/student.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var StudentService = /** @class */ (function () {
+    function StudentService() {
+    }
+    StudentService.prototype.GetStudents = function () {
+        var students = new Array();
+        var s1 = new _models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]();
+        s1.nombre = 'Test 1';
+        s1.apellidos = 'Apellidos 1';
+        var s2 = new _models_student__WEBPACK_IMPORTED_MODULE_0__["Student"]();
+        s2.nombre = 'Test 2';
+        s2.apellidos = 'Apellidos 2';
+        students.push(s1);
+        students.push(s2);
+        return students;
+    };
+    StudentService.prototype.GetStudent = function (id) {
+        var students = this.GetStudents();
+        var filteredStudents = students.filter(function (student) { return student.id === id; });
+        if (filteredStudents.length > 0) {
+            return filteredStudents[0];
+        }
+        else {
+            return null;
+        }
+    };
+    StudentService.prototype.SaveStudent = function (newStudent) {
+        var students = this.GetStudents();
+        var filteredStudents = students.filter(function (student) { return student.id === newStudent.id; });
+        if (filteredStudents.length > 0) {
+            var current = filteredStudents[0];
+            current.nombre = newStudent.nombre;
+            current.apellidos = newStudent.apellidos;
+            current.dni = newStudent.dni;
+            current.hobbies = newStudent.hobbies;
+            current.poblacion = newStudent.poblacion;
+            current.sexo = newStudent.sexo;
+            // Update
+        }
+        else {
+            // Insert
+        }
+    };
+    StudentService.prototype.DeleteStudent = function (id) {
+        var student = this.GetStudent(id);
+        if (student !== null) {
+            // Delete
+        }
+    };
+    StudentService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        })
+    ], StudentService);
+    return StudentService;
+}());
+
+
+
+/***/ }),
+
 /***/ 0:
 /*!***************************!*\
   !*** multi ./src/main.ts ***!
@@ -339,7 +636,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\antonio.santoyo\angularrepo\StudentManagerAngular\Client\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Formacion\StudentManagerAngular\Client\src\main.ts */"./src/main.ts");
 
 
 /***/ })

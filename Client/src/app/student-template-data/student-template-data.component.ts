@@ -1,4 +1,4 @@
-import { Student } from './../models/student';
+import { Student } from './../../shared/models/student';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-student-template-data',
