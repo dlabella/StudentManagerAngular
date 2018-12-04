@@ -7,7 +7,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class StudentTemplateDataComponent {
 
-  student: Student = new Student();
+  student: Student = new Student('', '', '', '', '', [], '');
   @Input() enabled = true;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onFormSubmit: EventEmitter<any> = new EventEmitter<any>();
@@ -22,6 +22,6 @@ export class StudentTemplateDataComponent {
       }
   }
   private onClear(): void {
-      this.student = new Student();
+      this.student = new Student('', '', '', '', '', [], '');
   }
 }

@@ -9,13 +9,9 @@ export class StudentService {
   public  GetStudents(): Array<Student> {
     const students = new Array<Student>();
 
-    const s1 = new Student();
-    s1.nombre = 'Test 1';
-    s1.apellidos = 'Apellidos 1';
+    const s1 = new Student('Test 1', 'Apellidos 1', '', '', '', [], '');
+    const s2 = new Student('Test 2', 'Apellidos 2', '', '', '', [], '');
 
-    const s2 = new Student();
-    s2.nombre = 'Test 2';
-    s2.apellidos = 'Apellidos 2';
 
     students.push(s1);
     students.push(s2);

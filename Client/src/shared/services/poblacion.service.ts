@@ -8,13 +8,8 @@ export class PoblacionService {
 
   public  GetPoblaciones(): Array<Poblacion> {
     const poblaciones = new Array<Poblacion>();
-    const barcelona = new Poblacion();
-    barcelona.id = 'BCN';
-    barcelona.name = 'Barcelona';
-
-    const madrid = new Poblacion();
-    madrid.id = 'MAD';
-    madrid.name = 'Madrid';
+    const barcelona = new Poblacion('BCN', 'Barcelona');
+    const madrid = new Poblacion('MAD', 'Madrid');
 
     poblaciones.push(barcelona);
     poblaciones.push(madrid);
