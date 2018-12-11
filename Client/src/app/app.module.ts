@@ -1,3 +1,4 @@
+import { AlumnoService } from './../shared/services/alumno.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,7 +26,8 @@ import { PoblacionService } from './../shared/services/poblacion.service';
               StudentService,
               SexoService,
               PoblacionService,
-              HttpClientModule
+              HttpClientModule,
+              AlumnoService
             ],
   bootstrap: [AppComponent]
 })

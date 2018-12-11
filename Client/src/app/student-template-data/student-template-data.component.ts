@@ -50,7 +50,7 @@ export class StudentTemplateDataComponent implements OnInit {
           this.onFormSubmit.emit(this.student);
       }
   }
-  
+
   private onClear(): void {
       this.student = new Student('', '', '', '', '', [], '');
   }

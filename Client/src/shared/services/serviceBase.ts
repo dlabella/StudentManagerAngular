@@ -1,5 +1,6 @@
-import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 export abstract class ServiceBase {
   private apiUrl: string;
@@ -11,19 +12,25 @@ export abstract class ServiceBase {
   }
 
   public apiGetCall<T>(url: string): Observable<T> {
-    return this.httpClient.get<T>(this.getApiUrl(url));
+    return this.httpClient.get<T>(this.getApiUrl(url)).pipe(
+      catchError(this.handleError('getCustomers', []))
+    );
+  }
+
+  handleError<T> (serviceName = '', operation = 'operation', result = {} as T) {
+    return (error: HttpErrorResponse): Observable<T> => {
+      // Todo -> Send the error to remote logging infrastructure
+      console.log(error); // log to console instead
+      const message = (error.error instanceof ErrorEvent) ?
+        error.error.message :
+       '{error code: ${error.status}, body: "${error.message}"}';
+      // -> Return a safe result.
+      return of( result );
+    };
   }
 
   private log(message: string) {
     console.error(message);
-  }
-
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      this.log('${operation} failed: ${error.message}');
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
   }
 
   private getApiUrl(part: string): string {
