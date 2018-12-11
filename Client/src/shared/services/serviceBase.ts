@@ -1,13 +1,12 @@
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 
-<<<<<<< HEAD
 @Injectable({
   providedIn: 'root'
 })
-=======
->>>>>>> 752500d491f86f7d65bcad7ae7555ae7534dc2fc
+
 export abstract class ServiceBase {
   private apiUrl: string;
   private httpClient: HttpClient;
