@@ -7,12 +7,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceBase {
+export abstract class ServiceBase {
   private apiUrl: string;
   private httpClient: HttpClient;
 
   constructor(apiUrl: string, httpClient: HttpClient) {
     this.apiUrl = apiUrl;
+    this.httpClient = httpClient;
   }
 
   public apiGetCall<T>(url: string): Observable<T> {
