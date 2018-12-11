@@ -20,6 +20,18 @@ export abstract class ServiceBase {
     return this.httpClient.get<T>(this.getApiUrl(url));
   }
 
+  public apiPutCall<T>(url: string, data: T): Observable<T> {
+    return this.httpClient.put<T>(this.getApiUrl(url), data);
+  }
+
+  public apiPatchCall<T>(url: string, data: T): Observable<T> {
+    return this.httpClient.patch<T>(this.getApiUrl(url), data);
+  }
+
+  public apiDeleteCall<T>(url: string, data: T): Observable<T> {
+    return this.httpClient.delete<T>(this.getApiUrl(url), data);
+  }
+
   private getApiUrl(part: string): string {
     return this.apiUrl + part;
   }
