@@ -1,26 +1,33 @@
+import { HobbyService } from './../../shared/services/hobby.service';
 
 import { Student } from './../../shared/models/student';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { StudentService } from 'src/shared/services/student.service';
+
 @Component({
   selector: 'app-student-template-data',
   templateUrl: './student-template-data.component.html',
   styleUrls: ['./student-template-data.component.css']
 })
-export class StudentTemplateDataComponent {
+export class StudentTemplateDataComponent implements OnInit {
 
   student: Student;
+  hobbies: any;
+
   @Input() enabled = true;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onFormSubmit: EventEmitter<any> = new EventEmitter<any>();
 
   studentService: StudentService;
+  hobbyService: HobbyService;
 
-  constructor(studentService: StudentService ) {
+  constructor(studentService: StudentService, hobbyService: HobbyService ) {
       this.studentService = studentService;
+      this.student = new Student('', '', '', '', '', [], '');
+      this.hobbyService = hobbyService;
   }
 
-  private onInit() {
+  ngOnInit(): void {
     this.studentService.GetStudents().subscribe
     (
         students => {
@@ -29,6 +36,9 @@ export class StudentTemplateDataComponent {
         error => {
             console.log(error);
         }
+    );
+    this.hobbyService.GetHobbies().subscribe(
+         hobbies => this.hobbies = hobbies
     );
   }
 
