@@ -1,24 +1,17 @@
-
-import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ServiceBase {
+export abstract class ServiceBase {
   private apiUrl: string;
   private httpClient: HttpClient;
 
   constructor(apiUrl: string, httpClient: HttpClient) {
     this.apiUrl = apiUrl;
+    this.httpClient = httpClient;
   }
 
   public apiGetCall<T>(url: string): Observable<T> {
-    return this.httpClient.get<T>(this.getApiUrl(url)).pipe(
-      catchError(this.handleError<T>('Error'))
-    );
+    return this.httpClient.get<T>(this.getApiUrl(url));
   }
 
   private log(message: string) {

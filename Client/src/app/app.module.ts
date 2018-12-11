@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,12 +18,15 @@ import { PoblacionService } from './../shared/services/poblacion.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [HobbyService,
               StudentService,
               SexoService,
-              PoblacionService],
+              PoblacionService,
+              HttpClientModule
+            ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
