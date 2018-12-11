@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import { AlumnoService } from './../shared/services/alumno.service';
+>>>>>>> 752500d491f86f7d65bcad7ae7555ae7534dc2fc
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -28,7 +32,10 @@ import { AlumnoComponent } from './alumno/alumno.component';
   providers: [HobbyService,
               StudentService,
               SexoService,
-              PoblacionService],
+              PoblacionService,
+              HttpClientModule,
+              AlumnoService
+            ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

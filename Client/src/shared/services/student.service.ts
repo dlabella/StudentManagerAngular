@@ -6,9 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { inherits } from 'util';
 import { ServiceBase } from './serviceBase';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class StudentService extends ServiceBase {
 

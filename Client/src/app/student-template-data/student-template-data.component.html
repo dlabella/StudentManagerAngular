@@ -17,7 +17,7 @@
             <select  id="poblacion" [(ngModel)]="student.poblacion"  class="form-control" name="poblacion">
                   <option>Barcelona</option>
                   <option>Castelldefels</option>
-            </select>
+            </select> 
       </div>
       <fieldset class="form-group">
             <legend>Sexo</legend>
@@ -28,6 +28,9 @@
             <label class="form-check-label">
                   <input type="radio"  id="optionMujer" value="Mujer" [(ngModel)]="student.sexo" name="sexo" /> Mujer
             </label>
+      </div>
+      <div *ngFor="let hobby of hobbies">
+            <input type="checkbox" value={{hobby.code}}><label>{{hobby.name}}</label>
       </div>
       </fieldset>
 
