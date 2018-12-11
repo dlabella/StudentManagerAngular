@@ -16,9 +16,7 @@ export class ServiceBase {
   }
 
   public apiGetCall<T>(url: string): Observable<T> {
-    return this.httpClient.get<T>(this.getApiUrl(url)).pipe(
-      catchError(this.handleError<T>('Error'))
-    );
+    return this.httpClient.get<T>(this.getApiUrl(url));
   }
 
   private log(message: string) {

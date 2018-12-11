@@ -21,9 +21,15 @@ export class StudentTemplateDataComponent {
   }
 
   private onInit() {
-    this.studentService.GetStudents().subscribe( students => {
-        this.student = students[0];
-    });
+    this.studentService.GetStudents().subscribe
+    (
+        students => {
+            this.student = students[0];
+        },
+        error => {
+            console.log(error);
+        }
+    );
   }
 
   private onSubmit(): void {
