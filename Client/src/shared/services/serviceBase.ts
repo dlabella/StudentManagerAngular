@@ -1,5 +1,11 @@
-import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 export abstract class ServiceBase {
   private apiUrl: string;
@@ -12,18 +18,6 @@ export abstract class ServiceBase {
 
   public apiGetCall<T>(url: string): Observable<T> {
     return this.httpClient.get<T>(this.getApiUrl(url));
-  }
-
-  private log(message: string) {
-    console.error(message);
-  }
-
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      this.log('${operation} failed: ${error.message}');
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
   }
 
   private getApiUrl(part: string): string {

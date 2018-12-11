@@ -1,3 +1,4 @@
+import { AlumnoService } from './../shared/services/alumno.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,11 +10,15 @@ import { HobbyService } from './../shared/services/hobby.service';
 import { StudentService } from './../shared/services/student.service';
 import { SexoService } from './../shared/services/sexo.service';
 import { PoblacionService } from './../shared/services/poblacion.service';
+import { AgregarAlumnoComponent } from './agregar-alumno/agregar-alumno.component';
+import { AlumnoComponent } from './alumno/alumno.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentTemplateDataComponent
+    StudentTemplateDataComponent,
+    AgregarAlumnoComponent,
+    AlumnoComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,8 @@ import { PoblacionService } from './../shared/services/poblacion.service';
               StudentService,
               SexoService,
               PoblacionService,
-              HttpClientModule
+              HttpClientModule,
+              AlumnoService
             ],
   bootstrap: [AppComponent]
 })

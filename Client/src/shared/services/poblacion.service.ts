@@ -1,18 +1,19 @@
 import { Poblacion } from '../models/poblacion';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ServiceBase } from './serviceBase';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PoblacionService {
+export class PoblacionService extends ServiceBase {
 
-  public  GetPoblaciones(): Array<Poblacion> {
-    const poblaciones = new Array<Poblacion>();
-    const barcelona = new Poblacion('BCN', 'Barcelona');
-    const madrid = new Poblacion('MAD', 'Madrid');
+  constructor(httpClient: HttpClient) {
+    super('http://127.0.0.1:3000/', httpClient);
+  }
 
-    poblaciones.push(barcelona);
-    poblaciones.push(madrid);
-    return poblaciones;
+  public  GetPoblaciones(): Observable<Poblacion[]> {
+    return this.apiGetCall('poblacion');
   }
 }

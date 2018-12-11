@@ -17,20 +17,27 @@
             <select  id="poblacion" [(ngModel)]="student.poblacion"  class="form-control" name="poblacion">
                   <option>Barcelona</option>
                   <option>Castelldefels</option>
-            </select>
+            </select> 
       </div>
       <fieldset class="form-group">
             <legend>Sexo</legend>
       <div class="form-check">
             <label class="form-check-label">
-                  <input type="radio" class="form-control" id="optionHombre" value="Hombre" [(ngModel)]="student.sexo" name="sexo" /> Hombre 
+                  <input type="radio" class="form-check-input"  id="optionHombre" value="Hombre" [(ngModel)]="student.sexo" name="sexo" /> Hombre 
             </label>
             <label class="form-check-label">
-                  <input type="radio" class="form-control" id="optionMujer" value="Mujer" [(ngModel)]="student.sexo" name="sexo" /> Mujer
+                  <input type="radio"  id="optionMujer" value="Mujer" [(ngModel)]="student.sexo" name="sexo" /> Mujer
             </label>
       </div>
+      <div *ngFor="let hobby of hobbies">
+            <input type="checkbox" value={{hobby.code}}><label>{{hobby.name}}</label>
+      </div>
       </fieldset>
+
+      <div *ngFor="let item of student.hobbies">
+            <input type="checkbox" name="hobbies" [checked]="item.checked" (change)="true">{{item}}</input>
+      </div>
           <input type="button" class="btn btn-primary"  
-                  (click)="onSubmit()"/>
+                  (click)="onSubmit()">Submit</input>
 </form>
 </section>
