@@ -1,6 +1,6 @@
 'use strict';
  
-const Student = require('../models/student');
+const Hobby = require('../models/hobby');
  
 class HobbyRepository {
     constructor() {
