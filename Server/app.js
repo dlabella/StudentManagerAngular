@@ -12,6 +12,7 @@ app.use(function(req, res, next) {
 
 app.use(bodyParser.json());
 require('./routes/hobbyRoutes')(app);
+require('./routes/sexoRoutes')(app);
 require('./routes/studentRoutes')(app);
  
 app.listen(3000, () => {
