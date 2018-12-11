@@ -10,11 +10,15 @@ import { HobbyService } from './../shared/services/hobby.service';
 import { StudentService } from './../shared/services/student.service';
 import { SexoService } from './../shared/services/sexo.service';
 import { PoblacionService } from './../shared/services/poblacion.service';
+import { AgregarAlumnoComponent } from './agregar-alumno/agregar-alumno.component';
+import { AlumnoComponent } from './alumno/alumno.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentTemplateDataComponent
+    StudentTemplateDataComponent,
+    AgregarAlumnoComponent,
+    AlumnoComponent
   ],
   imports: [
     BrowserModule,
