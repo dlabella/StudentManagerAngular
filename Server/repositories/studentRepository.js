@@ -5,10 +5,10 @@ const Student = require('../models/student');
 class StudentRepository {
     constructor() {
         this.students = new Map([
-            [1, new Student(1, "Test", "1", "46983516J", "Vallirana", ["pc"], "hombre")],
-            [2, new Student(2, "Test", "2", "46983516J", "Vallirana", ["pc"], "hombre")],
-            [3, new Student(3, "Test", "3", "46983516J", "Vallirana", ["pc"], "hombre")],
-            [4, new Student(4, "Test", "4", "46983516J", "Vallirana", ["pc"], "hombre")],
+            [1, new Student(1, "Test", "1", "46983516J", "Vallirana", [".Net"], "hombre")],
+            [2, new Student(2, "Test", "2", "46983516J", "Vallirana", [".Net"], "hombre")],
+            [3, new Student(3, "Test", "3", "46983516J", "Vallirana", [".Net"], "hombre")],
+            [4, new Student(4, "Test", "4", "46983516J", "Vallirana", [".Net"], "hombre")],
         ]);
     }
  

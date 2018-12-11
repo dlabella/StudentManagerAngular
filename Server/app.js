@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 require('./routes/hobbyRoutes')(app);
 require('./routes/sexoRoutes')(app);
 require('./routes/studentRoutes')(app);
+require('./routes/alumnoRoutes')(app);
  
 app.listen(3000, () => {
     console.log('Server up!');
