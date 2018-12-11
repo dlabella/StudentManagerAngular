@@ -24,10 +24,10 @@ export class AlumnoService extends ServiceBase {
   }
 
   public deleteAlumno(alumno: Alumno): void {
-      this.apiDeleteCall('alumno/' + alumno.Id);
+      this.apiDeleteCall('alumno/' + alumno.id, alumno);
   }
 
   public updateAlumno(id: number, alumno: Alumno): void {
-    this.apiPatchCall('alumno/' + id, alumno);
+    this.apiPatchCall('alumno/' + alumno.id, alumno);
   }
 }
